@@ -30,7 +30,7 @@ Sample Output for the given listOfProducts will be :
   {
     productName: "FAN",
     quantity: 10,
-     description: "Ceiling Fan"
+    description: "Ceiling Fan"
   }
 ]
 */
@@ -70,13 +70,15 @@ function getUniqueProductCount(listOfProducts) {
     for(let i = 0; i < n; i++)
     {
         if(obj[listOfProducts[i].productName] == undefined) {
-            obj[listOfProducts[i].productName] = listOfProducts[i].quantity;
+            obj[listOfProducts[i].productName] = 1;
         }
         else {
-            obj[listOfProducts[i].productName] += listOfProducts[i].quantity;
+            obj[listOfProducts[i].productName]++;
         }
     }
     console.log(obj);
 }
 
 getUniqueProductCount(listOfProducts);
+
+

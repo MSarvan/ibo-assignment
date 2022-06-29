@@ -112,8 +112,8 @@ function getUniquePrducts(listOfProducts) {
         
         for (let j = 0; j < n; j++) {
             if (productarr[i] === listOfProducts[j].productName) {
-                pro_quantity += listOfProducts[j].quantity;
                 pro_name = listOfProducts[j].productName;
+                pro_quantity += listOfProducts[j].quantity;
                 pro_description = listOfProducts[j].description;
                 check = 1;
             }

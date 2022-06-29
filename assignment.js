@@ -76,9 +76,55 @@ function getUniqueProductCount(listOfProducts) {
             obj[listOfProducts[i].productName]++;
         }
     }
-    console.log(obj);
+    return obj;
 }
 
-getUniqueProductCount(listOfProducts);
+console.log(getUniqueProductCount(listOfProducts));
 
 
+function getUniquePrducts(listOfProducts) {
+    let obj = {};
+    let productarr = [];
+    let n = listOfProducts.length;
+    
+    for (let i = 0; i < n; i++) {
+        if(obj[listOfProducts[i].productName] == undefined) {
+                obj[listOfProducts[i].productName] = 1;
+            }
+        else {
+            obj[listOfProducts[i].productName]++;
+        }
+    }
+    
+    for(keys in obj) {
+        productarr.push(keys);    
+    }
+    // console.log(productarr);
+    
+    let arr = [];
+    
+    for (let i = 0; i < productarr.length; i++) {
+        let obj1 = {};
+        let pro_quantity = 0;
+        let pro_name = "";
+        let pro_description = "";
+        let check = 0;
+        
+        for (let j = 0; j < n; j++) {
+            if (productarr[i] === listOfProducts[j].productName) {
+                pro_quantity += listOfProducts[j].quantity;
+                pro_name = listOfProducts[j].productName;
+                pro_description = listOfProducts[j].description;
+                check = 1;
+            }
+        }
+        if (check == 1) {
+            obj1.productName = pro_name;
+            obj1.quantity = pro_quantity;
+            obj1.description = pro_description;
+            arr.push(obj1);
+        };
+    }
+    return arr;
+}
+console.log(getUniquePrducts(listOfProducts));
